@@ -58,9 +58,9 @@
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label4.Location = new System.Drawing.Point(11, 5);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(82, 18);
+            this.label4.Size = new System.Drawing.Size(94, 18);
             this.label4.TabIndex = 7;
-            this.label4.Text = "Version 1.1";
+            this.label4.Text = "Version 1.1.1";
             // 
             // label1
             // 
