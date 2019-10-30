@@ -28,6 +28,7 @@ namespace SIESTUNAM
         private void btn_login_Click(object sender, EventArgs e)
         {
             //Verificaciones de clave y usuario etc
+            //Verificando la nueva version
             if (verificaSesion(Convert.ToString(CBOEmp.SelectedItem)))
             {
                 principal_frm principal = new principal_frm(this, empleadito);
