@@ -63,21 +63,26 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label21 = new System.Windows.Forms.Label();
+            this.lblOcupados = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
+            this.lblDisponible = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtUserName = new System.Windows.Forms.TextBox();
+            this.lblNameEsc = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -120,6 +125,7 @@
             // 
             resources.ApplyResources(this.usuarioNuevoToolStripMenuItem, "usuarioNuevoToolStripMenuItem");
             this.usuarioNuevoToolStripMenuItem.Name = "usuarioNuevoToolStripMenuItem";
+            this.usuarioNuevoToolStripMenuItem.Click += new System.EventHandler(this.usuarioNuevoToolStripMenuItem_Click);
             // 
             // ayudaToolStripMenuItem
             // 
@@ -309,18 +315,18 @@
             resources.ApplyResources(this.panel5, "panel5");
             this.panel5.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.label21);
+            this.panel5.Controls.Add(this.lblOcupados);
             this.panel5.Controls.Add(this.label22);
-            this.panel5.Controls.Add(this.label20);
+            this.panel5.Controls.Add(this.lblDisponible);
             this.panel5.Controls.Add(this.label19);
             this.panel5.Controls.Add(this.label18);
             this.panel5.Name = "panel5";
             // 
-            // label21
+            // lblOcupados
             // 
-            resources.ApplyResources(this.label21, "label21");
-            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(61)))), ((int)(((byte)(113)))));
-            this.label21.Name = "label21";
+            resources.ApplyResources(this.lblOcupados, "lblOcupados");
+            this.lblOcupados.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(61)))), ((int)(((byte)(113)))));
+            this.lblOcupados.Name = "lblOcupados";
             // 
             // label22
             // 
@@ -328,11 +334,11 @@
             this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(61)))), ((int)(((byte)(113)))));
             this.label22.Name = "label22";
             // 
-            // label20
+            // lblDisponible
             // 
-            resources.ApplyResources(this.label20, "label20");
-            this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(186)))), ((int)(((byte)(124)))));
-            this.label20.Name = "label20";
+            resources.ApplyResources(this.lblDisponible, "lblDisponible");
+            this.lblDisponible.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(186)))), ((int)(((byte)(124)))));
+            this.lblDisponible.Name = "lblDisponible";
             // 
             // label19
             // 
@@ -345,12 +351,28 @@
             resources.ApplyResources(this.label18, "label18");
             this.label18.Name = "label18";
             // 
-            // pictureBox3
+            // txtUserName
             // 
-            resources.ApplyResources(this.pictureBox3, "pictureBox3");
-            this.pictureBox3.Image = global::SIESTUNAM.Properties.Resources.usuario1;
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.TabStop = false;
+            resources.ApplyResources(this.txtUserName, "txtUserName");
+            this.txtUserName.Name = "txtUserName";
+            this.txtUserName.ReadOnly = true;
+            // 
+            // lblNameEsc
+            // 
+            resources.ApplyResources(this.lblNameEsc, "lblNameEsc");
+            this.lblNameEsc.Name = "lblNameEsc";
+            // 
+            // panel6
+            // 
+            resources.ApplyResources(this.panel6, "panel6");
+            this.panel6.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.panel2);
+            this.panel6.Controls.Add(this.lblNameEsc);
+            this.panel6.Controls.Add(this.pictureBox1);
+            this.panel6.Controls.Add(this.txtUserName);
+            this.panel6.Controls.Add(this.pictureBox3);
+            this.panel6.Name = "panel6";
             // 
             // pictureBox1
             // 
@@ -359,11 +381,21 @@
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
             // 
-            // txtUserName
+            // pictureBox3
             // 
-            resources.ApplyResources(this.txtUserName, "txtUserName");
-            this.txtUserName.Name = "txtUserName";
-            this.txtUserName.ReadOnly = true;
+            resources.ApplyResources(this.pictureBox3, "pictureBox3");
+            this.pictureBox3.Image = global::SIESTUNAM.Properties.Resources.usuario1;
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.TabStop = false;
+            // 
+            // panel7
+            // 
+            resources.ApplyResources(this.panel7, "panel7");
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(150)))), ((int)(((byte)(57)))));
+            this.panel7.Controls.Add(this.panel1);
+            this.panel7.Controls.Add(this.panel5);
+            this.panel7.Controls.Add(this.panel4);
+            this.panel7.Name = "panel7";
             // 
             // principal_frm
             // 
@@ -371,14 +403,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.ControlBox = false;
-            this.Controls.Add(this.txtUserName);
-            this.Controls.Add(this.panel5);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel7);
+            this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
@@ -393,8 +420,11 @@
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.panel7.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -435,15 +465,18 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label lblOcupados;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label lblDisponible;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cerrarToolStripMenuItem;
         private System.Windows.Forms.TextBox txtUserName;
+        private System.Windows.Forms.Label lblNameEsc;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel7;
 
 
     }

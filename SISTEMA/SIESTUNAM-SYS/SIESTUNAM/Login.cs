@@ -31,7 +31,7 @@ namespace SIESTUNAM
             //Verificando la nueva version
             if (verificaSesion(Convert.ToString(CBOEmp.SelectedItem)))
             {
-                principal_frm principal = new principal_frm(this, empleadito);
+                PRINCIPAL principal = new PRINCIPAL(this, empleadito);
                 principal.Show();
             }
             else 

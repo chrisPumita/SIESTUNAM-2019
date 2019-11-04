@@ -11,25 +11,25 @@ using MySql.Data.MySqlClient;
 
 namespace SIESTUNAM
 {
-    public partial class principal_frm : Form
+    public partial class PRINCIPAL : Form
     {
         Form Formulario;
         Empleado emp;
-        estacionamiento fesc; 
+        estacionamiento fesc;
 
-        public principal_frm(Form Formulario, Empleado emp)
+        public PRINCIPAL(Form Formulario, Empleado emp)
         {
-            this.Formulario = Formulario;
             InitializeComponent();
+            this.Formulario = Formulario;
             Formulario.Hide();
             this.emp = emp;
             IniciaConocimiento();
             cargaDatosEscuela();
             imprimeTadosEscuela();
-
+            if (emp.TipoCta != 1) // Es un empleado normal
+                menuAdmin.Visible = false;
         }
-
-        private void cargaDatosEscuela() 
+        private void cargaDatosEscuela()
         {
             int idEscuela = 1;
             string nom;
@@ -38,7 +38,7 @@ namespace SIESTUNAM
             int dis;
             //estacionamiento unam;
             // Realizar la conexion a la BD para obtener la informacion de la escuela
-            string query = "SELECT `nomEsc`, `lugaresTot`,`lugaresOc`,`lugaresDis` "+
+            string query = "SELECT `nomEsc`, `lugaresTot`,`lugaresOc`,`lugaresDis` " +
                 " FROM `estacionamiento` WHERE `idEst` = " + idEscuela + " ";
             // Prepara la conexión
             bool bandera = false;
@@ -65,7 +65,7 @@ namespace SIESTUNAM
                                        };
 
                         nom = row[0];
-                        tot =Convert.ToInt32(row[1]);
+                        tot = Convert.ToInt32(row[1]);
                         ocu = Convert.ToInt32(row[2]);
                         dis = Convert.ToInt32(row[3]);
 
@@ -85,23 +85,16 @@ namespace SIESTUNAM
 
         }
 
-        private void imprimeTadosEscuela() 
+        private void imprimeTadosEscuela()
         {
             lblNameEsc.Text = fesc.NomEscuela;
             label4.Text = fesc.NomEscuela;
-            lblDisponible.Text =Convert.ToString(fesc.Disponibles);
+            lblDisponible.Text = Convert.ToString(fesc.Disponibles);
             lblOcupados.Text = Convert.ToString(fesc.Ocupados);
         }
 
-        private void IniciaConocimiento() 
+        private void IniciaConocimiento()
         {
-            MessageBox.Show("ENTRE");
-            /*
-            this.idEmp = idEmp;
-            this.nomEmp = name;
-            this.apP = app;
-            this.apM = apm;
-             */
             string tipoCuta;
             if (emp.TipoCta == 1)
                 tipoCuta = "Adminisrtador";
@@ -112,7 +105,7 @@ namespace SIESTUNAM
             else
                 tipoCuta = "NO FOUNT";
 
-            txtUserName.Text = emp.NomEmp + " " + emp.ApP + " " + emp.ApM + " - " + emp.TipoCta+ " "+ tipoCuta;
+            txtUserName.Text = emp.NomEmp + " " + emp.ApP + " " + emp.ApM + " - " + tipoCuta;
         }
 
         private void vehiculoNuevoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -132,9 +125,37 @@ namespace SIESTUNAM
             Formulario.Close();
         }
 
-        private void usuarioNuevoToolStripMenuItem_Click(object sender, EventArgs e)
+
+
+        private void cerrarToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+            Formulario.Close();
+        }
+
+        private void agrgarEmpleadosToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddUsers agregaUsuario = new AddUsers(2, 1);
+            agregaUsuario.ShowDialog();
+
+        }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddUsers agregaUsuario = new AddUsers(1, 1);
+            agregaUsuario.ShowDialog();
+        }
+
+
     }
 }

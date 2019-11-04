@@ -45,13 +45,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddUsers.Designer.cs">
+      <DependentUpon>AddUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddVehiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddVehiculo.Designer.cs">
+      <DependentUpon>AddVehiculo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Conexion.cs" />
     <Compile Include="Empleado.cs" />
+    <Compile Include="estacionamiento.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PRINCIPAL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PRINCIPAL.Designer.cs">
+      <DependentUpon>PRINCIPAL.cs</DependentUpon>
     </Compile>
     <Compile Include="principal_frm.cs">
       <SubType>Form</SubType>
@@ -67,8 +86,18 @@
     <Compile Include="RegVehiculo_frm.Designer.cs">
       <DependentUpon>RegVehiculo_frm.cs</DependentUpon>
     </Compile>
+    <Compile Include="USUARIO.cs" />
+    <EmbeddedResource Include="AddUsers.resx">
+      <DependentUpon>AddUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddVehiculo.resx">
+      <DependentUpon>AddVehiculo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PRINCIPAL.resx">
+      <DependentUpon>PRINCIPAL.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="principal_frm.aa.resx">
       <DependentUpon>principal_frm.cs</DependentUpon>
