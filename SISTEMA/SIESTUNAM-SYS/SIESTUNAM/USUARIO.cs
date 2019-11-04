@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SIESTUNAM
 {
-    class USUARIO
+    public class USUARIO
     {
         int idUser;
 

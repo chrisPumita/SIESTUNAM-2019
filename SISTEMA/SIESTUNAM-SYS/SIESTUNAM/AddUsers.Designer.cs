@@ -31,14 +31,14 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cboTipoUsuario = new System.Windows.Forms.ComboBox();
+            this.cboSex = new System.Windows.Forms.ComboBox();
+            this.txtMail = new System.Windows.Forms.TextBox();
+            this.txtTel = new System.Windows.Forms.TextBox();
+            this.txtApm = new System.Windows.Forms.TextBox();
+            this.txtApp = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtNoCuenta = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -52,7 +52,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.txtId = new System.Windows.Forms.TextBox();
             this.lblId = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkStatus = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,18 +78,18 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.checkBox1);
+            this.panel1.Controls.Add(this.checkStatus);
             this.panel1.Controls.Add(this.txtId);
             this.panel1.Controls.Add(this.lblId);
             this.panel1.Controls.Add(this.lblOpcionTitulo);
-            this.panel1.Controls.Add(this.comboBox2);
-            this.panel1.Controls.Add(this.comboBox1);
-            this.panel1.Controls.Add(this.textBox6);
-            this.panel1.Controls.Add(this.textBox5);
-            this.panel1.Controls.Add(this.textBox4);
-            this.panel1.Controls.Add(this.textBox3);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.cboTipoUsuario);
+            this.panel1.Controls.Add(this.cboSex);
+            this.panel1.Controls.Add(this.txtMail);
+            this.panel1.Controls.Add(this.txtTel);
+            this.panel1.Controls.Add(this.txtApm);
+            this.panel1.Controls.Add(this.txtApp);
+            this.panel1.Controls.Add(this.txtNombre);
+            this.panel1.Controls.Add(this.txtNoCuenta);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
@@ -105,63 +105,77 @@
             this.panel1.TabIndex = 37;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // comboBox2
+            // cboTipoUsuario
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(195, 350);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(181, 27);
-            this.comboBox2.TabIndex = 47;
+            this.cboTipoUsuario.FormattingEnabled = true;
+            this.cboTipoUsuario.Items.AddRange(new object[] {
+            "Estudiante",
+            "Profesor",
+            "Administrativo",
+            "Trabajador",
+            "Otro"});
+            this.cboTipoUsuario.Location = new System.Drawing.Point(195, 350);
+            this.cboTipoUsuario.Name = "cboTipoUsuario";
+            this.cboTipoUsuario.Size = new System.Drawing.Size(227, 27);
+            this.cboTipoUsuario.TabIndex = 47;
+            this.cboTipoUsuario.Text = "Seleccion tipo";
             // 
-            // comboBox1
+            // cboSex
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(195, 314);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(181, 27);
-            this.comboBox1.TabIndex = 46;
+            this.cboSex.AutoCompleteCustomSource.AddRange(new string[] {
+            "Hombre",
+            "Mujer"});
+            this.cboSex.FormattingEnabled = true;
+            this.cboSex.Items.AddRange(new object[] {
+            "Hombre",
+            "Mujer"});
+            this.cboSex.Location = new System.Drawing.Point(195, 314);
+            this.cboSex.Name = "cboSex";
+            this.cboSex.Size = new System.Drawing.Size(227, 27);
+            this.cboSex.TabIndex = 46;
+            this.cboSex.Text = "Seleccione sexo";
             // 
-            // textBox6
+            // txtMail
             // 
-            this.textBox6.Location = new System.Drawing.Point(195, 277);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(227, 27);
-            this.textBox6.TabIndex = 45;
+            this.txtMail.Location = new System.Drawing.Point(195, 277);
+            this.txtMail.Name = "txtMail";
+            this.txtMail.Size = new System.Drawing.Size(227, 27);
+            this.txtMail.TabIndex = 45;
             // 
-            // textBox5
+            // txtTel
             // 
-            this.textBox5.Location = new System.Drawing.Point(195, 240);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(227, 27);
-            this.textBox5.TabIndex = 44;
+            this.txtTel.Location = new System.Drawing.Point(195, 240);
+            this.txtTel.Name = "txtTel";
+            this.txtTel.Size = new System.Drawing.Size(227, 27);
+            this.txtTel.TabIndex = 44;
             // 
-            // textBox4
+            // txtApm
             // 
-            this.textBox4.Location = new System.Drawing.Point(195, 203);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(227, 27);
-            this.textBox4.TabIndex = 43;
+            this.txtApm.Location = new System.Drawing.Point(195, 203);
+            this.txtApm.Name = "txtApm";
+            this.txtApm.Size = new System.Drawing.Size(227, 27);
+            this.txtApm.TabIndex = 43;
             // 
-            // textBox3
+            // txtApp
             // 
-            this.textBox3.Location = new System.Drawing.Point(195, 166);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(227, 27);
-            this.textBox3.TabIndex = 42;
+            this.txtApp.Location = new System.Drawing.Point(195, 166);
+            this.txtApp.Name = "txtApp";
+            this.txtApp.Size = new System.Drawing.Size(227, 27);
+            this.txtApp.TabIndex = 42;
             // 
-            // textBox2
+            // txtNombre
             // 
-            this.textBox2.Location = new System.Drawing.Point(195, 129);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(227, 27);
-            this.textBox2.TabIndex = 41;
+            this.txtNombre.Location = new System.Drawing.Point(195, 129);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(227, 27);
+            this.txtNombre.TabIndex = 41;
             // 
-            // textBox1
+            // txtNoCuenta
             // 
-            this.textBox1.Location = new System.Drawing.Point(195, 92);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(227, 27);
-            this.textBox1.TabIndex = 40;
+            this.txtNoCuenta.Location = new System.Drawing.Point(195, 92);
+            this.txtNoCuenta.Name = "txtNoCuenta";
+            this.txtNoCuenta.Size = new System.Drawing.Size(227, 27);
+            this.txtNoCuenta.TabIndex = 40;
             // 
             // label8
             // 
@@ -283,17 +297,17 @@
             this.lblId.TabIndex = 49;
             this.lblId.Text = "ID:";
             // 
-            // checkBox1
+            // checkStatus
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(195, 394);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(79, 23);
-            this.checkBox1.TabIndex = 51;
-            this.checkBox1.Text = "Activo";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkStatus.AutoSize = true;
+            this.checkStatus.Checked = true;
+            this.checkStatus.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkStatus.Location = new System.Drawing.Point(195, 395);
+            this.checkStatus.Name = "checkStatus";
+            this.checkStatus.Size = new System.Drawing.Size(79, 23);
+            this.checkStatus.TabIndex = 51;
+            this.checkStatus.Text = "Activo";
+            this.checkStatus.UseVisualStyleBackColor = true;
             // 
             // AddUsers
             // 
@@ -324,14 +338,14 @@
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.Label lblOpcionTitulo;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox cboTipoUsuario;
+        private System.Windows.Forms.ComboBox cboSex;
+        private System.Windows.Forms.TextBox txtMail;
+        private System.Windows.Forms.TextBox txtTel;
+        private System.Windows.Forms.TextBox txtApm;
+        private System.Windows.Forms.TextBox txtApp;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.TextBox txtNoCuenta;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -342,6 +356,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAccion;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkStatus;
     }
 }

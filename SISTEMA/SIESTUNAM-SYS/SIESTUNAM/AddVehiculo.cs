@@ -12,15 +12,25 @@ namespace SIESTUNAM
 {
     public partial class AddVehiculo : Form
     {
-
-        public AddVehiculo()
+        Empleado emp;
+        USUARIO usuario;
+        public AddVehiculo(Empleado e, USUARIO user)
         {
+            this.usuario = user;
             InitializeComponent();
+            this.emp = e;
+            lblNombreUsuario.Text = user.Nombre + " "+ user.App + " "+ user.Apm;
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

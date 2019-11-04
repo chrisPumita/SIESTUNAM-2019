@@ -140,7 +140,7 @@ namespace SIESTUNAM
 
         private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddUsers agregaUsuario = new AddUsers(2, 1);
+            AddUsers agregaUsuario = new AddUsers(2, 1, emp);
             agregaUsuario.ShowDialog();
 
         }
@@ -152,7 +152,7 @@ namespace SIESTUNAM
 
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddUsers agregaUsuario = new AddUsers(1, 1);
+            AddUsers agregaUsuario = new AddUsers(1, 1, emp);
             agregaUsuario.ShowDialog();
         }
 
