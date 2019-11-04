@@ -42,19 +42,17 @@ namespace SIESTUNAM
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-
             if (opc != 1) // Voy a ingresar NUevo registro
             {
                 if (validaDatosUsuario())
                 {
-                    AddVehiculo carroNuevo = new AddVehiculo(empleadoClass, usuarioClass);
+                    //le mando 1 porque voy a agregar nuevo usuario
+                    AddVehiculo carroNuevo = new AddVehiculo(empleadoClass, usuarioClass,1);
                     carroNuevo.ShowDialog();
                 }
                 else
                     MessageBox.Show("Faltan datos por agregar o el formato no es el correcto");
             }
-
             else {
                 MessageBox.Show("Se modifico el usuario");
                 this.Close();
@@ -82,17 +80,16 @@ namespace SIESTUNAM
             int tipo = cboTipoUsuario.SelectedIndex;
             int status = checkStatus.Checked ? 1 : 0;
             /*        public USUARIO(
- * int id, 
- * nt cta, 
- * string nom, 
- * string ap, 
- * string am, 
- * string tel, 
- * string email, 
- * int sex, 
- * int tipo,
- * int status)
-*/
+                         * int id, 
+                         * nt cta, 
+                         * string nom, 
+                         * string ap, 
+                         * string am, 
+                         * string tel, 
+                         * string email, 
+                         * int sex, 
+                         * int tipo,
+                         * int status)
             /*
 
             USUARIO otroUSer = new USUARIO(opc != 1 ? 0 : Convert.ToInt32(txtId.Text), Convert.ToInt32(txtNoCuenta.Text),

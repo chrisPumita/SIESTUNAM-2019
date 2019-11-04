@@ -31,18 +31,18 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.comboTipoVehiculo = new System.Windows.Forms.ComboBox();
+            this.txtColor = new System.Windows.Forms.TextBox();
+            this.txtPlacas = new System.Windows.Forms.TextBox();
+            this.txtModelo = new System.Windows.Forms.TextBox();
+            this.txtMarca = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblNombreUsuario = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.cboStatus = new System.Windows.Forms.CheckBox();
             this.label9 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -71,18 +71,18 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.comboBox3);
-            this.panel1.Controls.Add(this.textBox10);
-            this.panel1.Controls.Add(this.textBox9);
-            this.panel1.Controls.Add(this.textBox8);
-            this.panel1.Controls.Add(this.textBox7);
+            this.panel1.Controls.Add(this.comboTipoVehiculo);
+            this.panel1.Controls.Add(this.txtColor);
+            this.panel1.Controls.Add(this.txtPlacas);
+            this.panel1.Controls.Add(this.txtModelo);
+            this.panel1.Controls.Add(this.txtMarca);
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.lblNombreUsuario);
-            this.panel1.Controls.Add(this.checkBox1);
+            this.panel1.Controls.Add(this.cboStatus);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(2, 34);
@@ -90,47 +90,53 @@
             this.panel1.Size = new System.Drawing.Size(448, 336);
             this.panel1.TabIndex = 53;
             // 
-            // comboBox3
+            // comboTipoVehiculo
             // 
-            this.comboBox3.AutoCompleteCustomSource.AddRange(new string[] {
+            this.comboTipoVehiculo.AutoCompleteCustomSource.AddRange(new string[] {
             "Moto",
             "Automovil",
             "Camioneta",
             "Camion"});
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(196, 97);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(207, 27);
-            this.comboBox3.TabIndex = 62;
-            this.comboBox3.Text = "Seleccione Vehiculo";
+            this.comboTipoVehiculo.FormattingEnabled = true;
+            this.comboTipoVehiculo.Items.AddRange(new object[] {
+            "Motocicleta",
+            "Autmovil",
+            "Camioneta",
+            "Camion",
+            "Otro"});
+            this.comboTipoVehiculo.Location = new System.Drawing.Point(196, 97);
+            this.comboTipoVehiculo.Name = "comboTipoVehiculo";
+            this.comboTipoVehiculo.Size = new System.Drawing.Size(207, 27);
+            this.comboTipoVehiculo.TabIndex = 62;
+            this.comboTipoVehiculo.Text = "Seleccione Vehiculo";
             // 
-            // textBox10
+            // txtColor
             // 
-            this.textBox10.Location = new System.Drawing.Point(196, 244);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(207, 27);
-            this.textBox10.TabIndex = 61;
+            this.txtColor.Location = new System.Drawing.Point(196, 244);
+            this.txtColor.Name = "txtColor";
+            this.txtColor.Size = new System.Drawing.Size(207, 27);
+            this.txtColor.TabIndex = 61;
             // 
-            // textBox9
+            // txtPlacas
             // 
-            this.textBox9.Location = new System.Drawing.Point(196, 207);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(207, 27);
-            this.textBox9.TabIndex = 60;
+            this.txtPlacas.Location = new System.Drawing.Point(196, 207);
+            this.txtPlacas.Name = "txtPlacas";
+            this.txtPlacas.Size = new System.Drawing.Size(207, 27);
+            this.txtPlacas.TabIndex = 60;
             // 
-            // textBox8
+            // txtModelo
             // 
-            this.textBox8.Location = new System.Drawing.Point(196, 170);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(207, 27);
-            this.textBox8.TabIndex = 59;
+            this.txtModelo.Location = new System.Drawing.Point(196, 170);
+            this.txtModelo.Name = "txtModelo";
+            this.txtModelo.Size = new System.Drawing.Size(207, 27);
+            this.txtModelo.TabIndex = 59;
             // 
-            // textBox7
+            // txtMarca
             // 
-            this.textBox7.Location = new System.Drawing.Point(196, 133);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(207, 27);
-            this.textBox7.TabIndex = 58;
+            this.txtMarca.Location = new System.Drawing.Point(196, 133);
+            this.txtMarca.Name = "txtMarca";
+            this.txtMarca.Size = new System.Drawing.Size(207, 27);
+            this.txtMarca.TabIndex = 58;
             // 
             // label13
             // 
@@ -187,17 +193,17 @@
             this.lblNombreUsuario.TabIndex = 52;
             this.lblNombreUsuario.Text = "<UserName>";
             // 
-            // checkBox1
+            // cboStatus
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(196, 291);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(79, 23);
-            this.checkBox1.TabIndex = 51;
-            this.checkBox1.Text = "Activo";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.cboStatus.AutoSize = true;
+            this.cboStatus.Checked = true;
+            this.cboStatus.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cboStatus.Location = new System.Drawing.Point(196, 291);
+            this.cboStatus.Name = "cboStatus";
+            this.cboStatus.Size = new System.Drawing.Size(79, 23);
+            this.cboStatus.TabIndex = 51;
+            this.cboStatus.Text = "Activo";
+            this.cboStatus.UseVisualStyleBackColor = true;
             // 
             // label9
             // 
@@ -253,15 +259,15 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblNombreUsuario;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox cboStatus;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.ComboBox comboTipoVehiculo;
+        private System.Windows.Forms.TextBox txtColor;
+        private System.Windows.Forms.TextBox txtPlacas;
+        private System.Windows.Forms.TextBox txtModelo;
+        private System.Windows.Forms.TextBox txtMarca;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
