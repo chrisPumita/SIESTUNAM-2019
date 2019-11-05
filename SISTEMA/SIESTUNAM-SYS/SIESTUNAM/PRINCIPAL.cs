@@ -140,7 +140,8 @@ namespace SIESTUNAM
 
         private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddUsers agregaUsuario = new AddUsers(2, 1, emp);
+            // Accion 1 = agregar nuevo // id User
+            AddUsers agregaUsuario = new AddUsers(1, 1, emp);
             agregaUsuario.ShowDialog();
 
         }

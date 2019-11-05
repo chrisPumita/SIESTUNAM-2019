@@ -87,6 +87,7 @@
       <DependentUpon>RegVehiculo_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="USUARIO.cs" />
+    <Compile Include="VEHICULO.cs" />
     <EmbeddedResource Include="AddUsers.resx">
       <DependentUpon>AddUsers.cs</DependentUpon>
     </EmbeddedResource>

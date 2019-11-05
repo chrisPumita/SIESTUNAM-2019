@@ -16,13 +16,14 @@ namespace SIESTUNAM
         int id;
         USUARIO usuarioClass;
         Empleado empleadoClass;
+        //Opc 1 agregar != 1 Editar
         public AddUsers(int opc, int id, Empleado emp)
         {
             InitializeComponent();
             this.empleadoClass = emp;
             this.opc = opc;
 
-            if (opc != 1) // Defino que se trata de una insercion (nuevo)
+            if (opc == 1) // Defino que se trata de una insercion (nuevo)
             {
                 lblOpcionTitulo.Text = "Agregar Nuevo Usuario";
                 btnAccion.Text = "Siguiente";
@@ -42,7 +43,7 @@ namespace SIESTUNAM
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (opc != 1) // Voy a ingresar NUevo registro
+            if (opc == 1) // Voy a ingresar NUevo registro
             {
                 if (validaDatosUsuario())
                 {
@@ -103,7 +104,7 @@ namespace SIESTUNAM
                 try
                 {
                     int id;
-                    if (opc != 1)//
+                    if (opc == 1)//
                         id = 0;
                     else
                         id = Convert.ToInt32(txtId.Text);
