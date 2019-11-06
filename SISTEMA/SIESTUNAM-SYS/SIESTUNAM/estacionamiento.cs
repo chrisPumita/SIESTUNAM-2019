@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SIESTUNAM
 {
-    class estacionamiento
+    public class estacionamiento
     {
         int iDEstacionamiento;
 

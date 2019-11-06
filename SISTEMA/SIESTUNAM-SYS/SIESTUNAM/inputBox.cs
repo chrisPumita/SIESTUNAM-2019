@@ -11,49 +11,53 @@ using MySql.Data.MySqlClient;
 
 namespace SIESTUNAM
 {
-    public partial class Login_frm : Form
+    public partial class inputBox : Form
     {
-        //Variables globales de la clase
-        String Sesion;
-        MySqlDataReader readerDB;
-         Empleado empleadito;
+        Empleado empleadoF;
+        USUARIO usuario;
+        string value;
+        int opc;
 
-
-        public Login_frm()
+        public inputBox(int opc)
         {
+            this.opc = opc;
             InitializeComponent();
-            CargaEmpleados();
+        }
+
+        public string inputBoxDIalog()
+        {
+            this.Close();
+            return value;
+        }
+
+        public Empleado getEmpleado()
+        {
+            this.Close();
+            return empleadoF;
         }
 
         private void btn_login_Click(object sender, EventArgs e)
         {
-            //Verificaciones de clave y usuario etc
-            //Verificando la nueva version
-            if (verificaSesion(Convert.ToString(CBOEmp.SelectedItem)))
-            {
-                PRINCIPAL principal = new PRINCIPAL(this, empleadito);
-                principal.Show();
-            }
-            else 
-            {
-                MessageBox.Show("Datos incorrectos");
-            }
+            this.value = txtInput.Text;
+            if (value != "")
+                if (opc == 1)
+                    buscarEmpleado(value);
+                else
+                    MessageBox.Show("Buscando usuario");
+            else
+                MessageBox.Show("Debe escribir No de Cuenta");
 
+                this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            CargaEmpleados();
-        }
-
-        private bool verificaSesion(string nameEmp) 
+        private void buscarEmpleado(string noCueta)
         {
             // Tu consulta en SQL
-            string query = "SELECT "+
-                "`idEmp`,`noCuenta`,`nomEmp`,`apP`,`apM`,`tel`,`email`,`sex`,`tipoCta`,`status`,`psw`,`idEst` "+
-                "FROM `empleado` WHERE `status` = 1 AND `nomEmp` = '" + nameEmp + "'  ;";
+            
+            string query = "SELECT " +
+                "`idEmp`,`noCuenta`,`nomEmp`,`apP`,`apM`,`tel`,`email`,`sex`,`tipoCta`,`status`,`psw`,`idEst` " +
+                "FROM `empleado` WHERE `status` = 1 AND `noCuenta` = '" + noCueta + "'  ;";
             // Prepara la conexión
-            bool bandera = false;
             Conexion cn = new Conexion();
             MySqlConnection databaseConnection = cn.ConexionNew();
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
@@ -64,7 +68,6 @@ namespace SIESTUNAM
                 databaseConnection.Open();
                 reader = commandDatabase.ExecuteReader();
                 //copia del reader
-                this.readerDB = reader;
                 if (reader.HasRows)
                 {
                     while (reader.Read())
@@ -85,12 +88,11 @@ namespace SIESTUNAM
                                            reader.GetString("status"), //9
                                            reader.GetString("psw"), //10
                                            reader.GetString("idEst") }; //11
-                        string pw = readerDB.GetString("psw");
-                        if (pw.Equals(txt_psw.Text))
+                        if (row.Length>0)
                         {
                             //int idEmp, int noCuenta, string name, string app, string apm, string tel, string email, char sex, int tc, bool status, string psw
                             int idEmp = Convert.ToInt32(row[0]);
-                            int noCuenta= Convert.ToInt32(row[1]);
+                            int noCuenta = Convert.ToInt32(row[1]);
                             string name = row[2];
                             string app = row[3];
                             string apm = row[4];
@@ -101,8 +103,7 @@ namespace SIESTUNAM
                             int status = Convert.ToInt32(row[9]);
                             string psw = row[10];
                             int idEscuela = Convert.ToInt32(row[11]);
-                            this.empleadito = new Empleado(idEmp,noCuenta,name,app,apm,tel,email,sex,tc,status,psw);
-                            bandera = true;
+                            this.empleadoF = new Empleado(idEmp, noCuenta, name, app, apm, tel, email, sex, tc, status, psw);
                         }
                     }
                 }
@@ -114,49 +115,11 @@ namespace SIESTUNAM
                 // Mostrar cualquier excepción
                 MessageBox.Show(ex.Message);
             }
-            return bandera;
         }
 
-
-        /// INICIO DE FUNCIONES DE LA CLASE
-        /// 
-        public MySqlDataReader CargaEmpleados()
+        private void button1_Click(object sender, EventArgs e)
         {
-            // Tu consulta en SQL
-            string query = "SELECT `nomEmp` FROM `empleado`  WHERE `status` = 1 ;";
-            // Prepara la conexión
-            Conexion cn = new Conexion();
-            MySqlConnection databaseConnection = cn.ConexionNew();
-            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
-            commandDatabase.CommandTimeout = 60;
-            MySqlDataReader reader;
-            try{
-                databaseConnection.Open();
-                reader = commandDatabase.ExecuteReader();
-                if (reader.HasRows){
-                  CBOEmp.Items.Clear();
-                    while (reader.Read()){
-                        /*
-                         * string[] row = { reader.GetString("NAME"), reader.GetString("AP"), reader.GetString(2) };
-                         MessageBox.Show( row[0] + row[1] + row[2]);
-                         */
-                        CBOEmp.Items.Add(reader.GetString("nomEmp"));
-                    }
-                    return reader;
-                }
-                else{
-                    MessageBox.Show("No se encontraron datos.");
-                    return reader;
-                }
-                // Cerrar la conexión
-                databaseConnection.Close();
-            }
-            catch (Exception ex)
-            {
-                // Mostrar cualquier excepción
-                MessageBox.Show(ex.Message);
-                return null;
-            }
+            this.Close();
         }
     }
 }

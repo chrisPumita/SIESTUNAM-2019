@@ -76,7 +76,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(107, 247);
+            this.label2.Location = new System.Drawing.Point(115, 270);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 25);
             this.label2.TabIndex = 3;
@@ -86,7 +86,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(58, 301);
+            this.label3.Location = new System.Drawing.Point(78, 324);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(129, 25);
             this.label3.TabIndex = 4;
@@ -94,7 +94,7 @@
             // 
             // txt_psw
             // 
-            this.txt_psw.Location = new System.Drawing.Point(220, 299);
+            this.txt_psw.Location = new System.Drawing.Point(228, 322);
             this.txt_psw.Name = "txt_psw";
             this.txt_psw.Size = new System.Drawing.Size(191, 24);
             this.txt_psw.TabIndex = 6;
@@ -131,7 +131,7 @@
             // CBOEmp
             // 
             this.CBOEmp.FormattingEnabled = true;
-            this.CBOEmp.Location = new System.Drawing.Point(220, 249);
+            this.CBOEmp.Location = new System.Drawing.Point(228, 272);
             this.CBOEmp.Name = "CBOEmp";
             this.CBOEmp.Size = new System.Drawing.Size(191, 26);
             this.CBOEmp.TabIndex = 10;

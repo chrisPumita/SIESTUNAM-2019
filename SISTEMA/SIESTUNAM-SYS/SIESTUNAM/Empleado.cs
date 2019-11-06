@@ -64,9 +64,9 @@ namespace SIESTUNAM
             set { email = value; }
         }
 
-        private char sex;
+        private int sex;
 
-        public char Sex
+        public int Sex
         {
             get { return sex; }
             set { sex = value; }
@@ -80,9 +80,9 @@ namespace SIESTUNAM
             set { tipoCta = value; }
         }
 
-        private bool status;
+        private int status;
 
-        public bool Status
+        public int Status
         {
             get { return status; }
             set { status = value; }
@@ -95,13 +95,19 @@ namespace SIESTUNAM
             set { psw = value; }
         }
 
-        public Empleado(int idEmp, string name, string app, string apm, int tc) 
+        public Empleado(int idEmp, int noCuenta, string name, string app, string apm, string tel, string email, int sex, int tc, int status, string psw) 
         {
-            this.IdEmp = idEmp;
-            this.NomEmp = name;
-            this.ApP= app;
-            this.ApM = apm;
-            this.TipoCta = tc;
+            this.idEmp = idEmp;
+            this.noCuenta = noCuenta;
+            this.nomEmp = name;
+            this.apP = app;
+            this.apM = apm;
+            this.tel = tel;
+            this.email = email;
+            this.sex = sex;
+            this.tipoCta = tc;
+            this.status = status;
+            this.psw = psw;
         }
     }
 

@@ -26,7 +26,6 @@ namespace SIESTUNAM
             InitializeComponent();
             this.emp = e;
             lblNombreUsuario.Text = user.Nombre + " "+ user.App + " "+ user.Apm;
-            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -37,10 +36,7 @@ namespace SIESTUNAM
         private void button1_Click(object sender, EventArgs e)
         {
             if (registro())
-            {
-                MessageBox.Show("Se ha registrado correctamente al usuario");
                 this.Close();
-            }
             else
                 MessageBox.Show("ALgo salio mal, no se ha registrado el usuario");
 
@@ -64,7 +60,7 @@ namespace SIESTUNAM
                             //Registrar el nuevo vehiculo
                             if (agregaVechiculo(idUserRegistrado))
                             {
-                                MessageBox.Show("Se ha registrado el vehiculo");
+                                MessageBox.Show("Registro correcto");
                                 flag = true;
                             }
                             else
