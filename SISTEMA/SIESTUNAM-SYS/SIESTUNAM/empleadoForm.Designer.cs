@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pintaPanel = new System.Windows.Forms.Panel();
             this.checkStatus = new System.Windows.Forms.CheckBox();
             this.txtId = new System.Windows.Forms.TextBox();
             this.lblId = new System.Windows.Forms.Label();
@@ -52,36 +52,36 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnAccion = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.pintaPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // pintaPanel
             // 
-            this.panel1.Controls.Add(this.checkStatus);
-            this.panel1.Controls.Add(this.txtId);
-            this.panel1.Controls.Add(this.lblId);
-            this.panel1.Controls.Add(this.lblOpcionTitulo);
-            this.panel1.Controls.Add(this.cboTipoUsuario);
-            this.panel1.Controls.Add(this.cboSex);
-            this.panel1.Controls.Add(this.txtMail);
-            this.panel1.Controls.Add(this.txtTel);
-            this.panel1.Controls.Add(this.txtApm);
-            this.panel1.Controls.Add(this.txtApp);
-            this.panel1.Controls.Add(this.txtNombre);
-            this.panel1.Controls.Add(this.txtNoCuenta);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(2, 45);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(448, 432);
-            this.panel1.TabIndex = 38;
+            this.pintaPanel.Controls.Add(this.checkStatus);
+            this.pintaPanel.Controls.Add(this.txtId);
+            this.pintaPanel.Controls.Add(this.lblId);
+            this.pintaPanel.Controls.Add(this.lblOpcionTitulo);
+            this.pintaPanel.Controls.Add(this.cboTipoUsuario);
+            this.pintaPanel.Controls.Add(this.cboSex);
+            this.pintaPanel.Controls.Add(this.txtMail);
+            this.pintaPanel.Controls.Add(this.txtTel);
+            this.pintaPanel.Controls.Add(this.txtApm);
+            this.pintaPanel.Controls.Add(this.txtApp);
+            this.pintaPanel.Controls.Add(this.txtNombre);
+            this.pintaPanel.Controls.Add(this.txtNoCuenta);
+            this.pintaPanel.Controls.Add(this.label8);
+            this.pintaPanel.Controls.Add(this.label7);
+            this.pintaPanel.Controls.Add(this.label6);
+            this.pintaPanel.Controls.Add(this.label5);
+            this.pintaPanel.Controls.Add(this.label4);
+            this.pintaPanel.Controls.Add(this.label3);
+            this.pintaPanel.Controls.Add(this.label2);
+            this.pintaPanel.Controls.Add(this.label1);
+            this.pintaPanel.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pintaPanel.Location = new System.Drawing.Point(2, 45);
+            this.pintaPanel.Name = "pintaPanel";
+            this.pintaPanel.Size = new System.Drawing.Size(448, 432);
+            this.pintaPanel.TabIndex = 38;
             // 
             // checkStatus
             // 
@@ -134,7 +134,6 @@
             this.cboTipoUsuario.Size = new System.Drawing.Size(227, 27);
             this.cboTipoUsuario.TabIndex = 47;
             this.cboTipoUsuario.Text = "Seleccion tipo";
-            this.cboTipoUsuario.SelectedIndexChanged += new System.EventHandler(this.cboTipoUsuario_SelectedIndexChanged);
             // 
             // cboSex
             // 
@@ -201,7 +200,6 @@
             this.label8.Size = new System.Drawing.Size(133, 19);
             this.label8.TabIndex = 39;
             this.label8.Text = "Tipo de cuenta:";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label7
             // 
@@ -302,19 +300,19 @@
             this.Controls.Add(this.btnAccion);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pintaPanel);
             this.Name = "empleadoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "EMPLEADO";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pintaPanel.ResumeLayout(false);
+            this.pintaPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pintaPanel;
         private System.Windows.Forms.CheckBox checkStatus;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label lblId;

@@ -107,7 +107,7 @@
             this.MinimizeBox = false;
             this.Name = "inputBox";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "inputBox";
+            this.Text = "Ingrese el No de Cuenta";
             this.ResumeLayout(false);
             this.PerformLayout();
 

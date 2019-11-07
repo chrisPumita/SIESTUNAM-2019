@@ -31,6 +31,10 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.checkStatus = new System.Windows.Forms.CheckBox();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.lblId = new System.Windows.Forms.Label();
+            this.lblOpcionTitulo = new System.Windows.Forms.Label();
             this.cboTipoUsuario = new System.Windows.Forms.ComboBox();
             this.cboSex = new System.Windows.Forms.ComboBox();
             this.txtMail = new System.Windows.Forms.TextBox();
@@ -47,12 +51,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblOpcionTitulo = new System.Windows.Forms.Label();
             this.btnAccion = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.txtId = new System.Windows.Forms.TextBox();
-            this.lblId = new System.Windows.Forms.Label();
-            this.checkStatus = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,7 +64,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(448, 21);
             this.panel2.TabIndex = 35;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // panel3
             // 
@@ -74,7 +73,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(448, 34);
             this.panel3.TabIndex = 36;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // panel1
             // 
@@ -103,7 +101,46 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(448, 432);
             this.panel1.TabIndex = 37;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // checkStatus
+            // 
+            this.checkStatus.AutoSize = true;
+            this.checkStatus.Checked = true;
+            this.checkStatus.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkStatus.Location = new System.Drawing.Point(195, 395);
+            this.checkStatus.Name = "checkStatus";
+            this.checkStatus.Size = new System.Drawing.Size(79, 23);
+            this.checkStatus.TabIndex = 51;
+            this.checkStatus.Text = "Activo";
+            this.checkStatus.UseVisualStyleBackColor = true;
+            // 
+            // txtId
+            // 
+            this.txtId.Enabled = false;
+            this.txtId.Location = new System.Drawing.Point(195, 56);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(227, 27);
+            this.txtId.TabIndex = 50;
+            this.txtId.Text = "AU";
+            // 
+            // lblId
+            // 
+            this.lblId.AutoSize = true;
+            this.lblId.Location = new System.Drawing.Point(157, 59);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(32, 19);
+            this.lblId.TabIndex = 49;
+            this.lblId.Text = "ID:";
+            // 
+            // lblOpcionTitulo
+            // 
+            this.lblOpcionTitulo.AutoSize = true;
+            this.lblOpcionTitulo.Font = new System.Drawing.Font("Montserrat", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOpcionTitulo.Location = new System.Drawing.Point(22, 14);
+            this.lblOpcionTitulo.Name = "lblOpcionTitulo";
+            this.lblOpcionTitulo.Size = new System.Drawing.Size(213, 29);
+            this.lblOpcionTitulo.TabIndex = 48;
+            this.lblOpcionTitulo.Text = "<AccionRealiza>";
             // 
             // cboTipoUsuario
             // 
@@ -249,16 +286,6 @@
             this.label1.TabIndex = 32;
             this.label1.Text = "No. de Cuenta:";
             // 
-            // lblOpcionTitulo
-            // 
-            this.lblOpcionTitulo.AutoSize = true;
-            this.lblOpcionTitulo.Font = new System.Drawing.Font("Montserrat", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOpcionTitulo.Location = new System.Drawing.Point(22, 14);
-            this.lblOpcionTitulo.Name = "lblOpcionTitulo";
-            this.lblOpcionTitulo.Size = new System.Drawing.Size(213, 29);
-            this.lblOpcionTitulo.TabIndex = 48;
-            this.lblOpcionTitulo.Text = "<AccionRealiza>";
-            // 
             // btnAccion
             // 
             this.btnAccion.Location = new System.Drawing.Point(373, 482);
@@ -279,36 +306,6 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // txtId
-            // 
-            this.txtId.Enabled = false;
-            this.txtId.Location = new System.Drawing.Point(195, 56);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(227, 27);
-            this.txtId.TabIndex = 50;
-            this.txtId.Text = "AU";
-            // 
-            // lblId
-            // 
-            this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(157, 59);
-            this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(32, 19);
-            this.lblId.TabIndex = 49;
-            this.lblId.Text = "ID:";
-            // 
-            // checkStatus
-            // 
-            this.checkStatus.AutoSize = true;
-            this.checkStatus.Checked = true;
-            this.checkStatus.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkStatus.Location = new System.Drawing.Point(195, 395);
-            this.checkStatus.Name = "checkStatus";
-            this.checkStatus.Size = new System.Drawing.Size(79, 23);
-            this.checkStatus.TabIndex = 51;
-            this.checkStatus.Text = "Activo";
-            this.checkStatus.UseVisualStyleBackColor = true;
-            // 
             // AddUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -321,9 +318,10 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AddUsers";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Agregar nuevo usuario";
+            this.Text = "USUARIOS";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

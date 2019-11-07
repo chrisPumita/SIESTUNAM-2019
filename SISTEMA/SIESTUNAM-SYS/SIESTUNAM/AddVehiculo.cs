@@ -13,18 +13,17 @@ namespace SIESTUNAM
 {
     public partial class AddVehiculo : Form
     {
-        Empleado emp;
-        USUARIO usuario;
         VEHICULO carro;
-
+        USUARIO usuario;
+        Form dialogoUsuario;
         // si accion =  1 Ya existe usuario  0 = NUevo usuario nuevo vehiculo
         int accion;
-        public AddVehiculo(Empleado e, USUARIO user, int Accion)
+        public AddVehiculo(Form ventana, USUARIO user, int Accion)
         {
+            this.dialogoUsuario = ventana;
             this.usuario = user;
             this.accion = Accion;
             InitializeComponent();
-            this.emp = e;
             lblNombreUsuario.Text = user.Nombre + " "+ user.App + " "+ user.Apm;
         }
 
@@ -35,11 +34,11 @@ namespace SIESTUNAM
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (registro())
-                this.Close();
-            else
+            if (!registro())
                 MessageBox.Show("ALgo salio mal, no se ha registrado el usuario");
-
+            this.Close();
+            dialogoUsuario.Close();
+            MessageBox.Show("Se ha registrado al usuario y su vehiculo");
         }
 
         private bool registro() 
@@ -60,7 +59,6 @@ namespace SIESTUNAM
                             //Registrar el nuevo vehiculo
                             if (agregaVechiculo(idUserRegistrado))
                             {
-                                MessageBox.Show("Registro correcto");
                                 flag = true;
                             }
                             else
@@ -194,9 +192,6 @@ namespace SIESTUNAM
             }
             return flag;
         }
-
-
-
 
     }
 }

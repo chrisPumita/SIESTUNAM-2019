@@ -30,6 +30,10 @@ namespace SIESTUNAM
             imprimeTadosEscuela();
             if (emp.TipoCta != 0) // Es un empleado normal
                 menuAdmin.Visible = false;
+            if (emp.Sex == 1)
+                panel6.BackColor = Color.LightPink;
+            else
+                panel6.BackColor = Color.CadetBlue;
         }
 
         private void cargaDatosEscuela()
@@ -139,9 +143,7 @@ namespace SIESTUNAM
 
         private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Accion 1 = agregar nuevo // id User
-            AddUsers agregaUsuario = new AddUsers(1, 1, emp);
-            agregaUsuario.ShowDialog();
+
         }
 
         private void panel6_Paint(object sender, PaintEventArgs e)
@@ -151,8 +153,8 @@ namespace SIESTUNAM
 
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddUsers agregaUsuario = new AddUsers(1, 1, emp);
-            agregaUsuario.ShowDialog();
+
+
         }
 
         private void modificarEmpleadoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -165,9 +167,42 @@ namespace SIESTUNAM
                 empleadoForm accionEmp = new empleadoForm(2, emp, this.fesc);
                 accionEmp.ShowDialog();
             }
-            else
-                MessageBox.Show("No encontramos empleados con este numero de cuenta");
-            
+        }
+
+        private void vehiculosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            inputBox dialogo = new inputBox(2);
+            dialogo.ShowDialog();
+            USUARIO user = dialogo.getUsuario();
+            if (user != null)
+            {
+                AddUsers agregaUsuario = new AddUsers(2, user);
+                agregaUsuario.ShowDialog();
+            }
+        }
+
+        private void agregarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            // Accion 1 = agregar nuevo // id User
+            AddUsers agregaUsuario = new AddUsers(1);
+            agregaUsuario.ShowDialog();
+        }
+
+        private void verUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Reportes reporteUsuario = new Reportes(1);
+            reporteUsuario.Show();
+        }
+
+        private void verVehiculosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Reportes reporteV = new Reportes(2);
+            reporteV.Show();
         }
 
 

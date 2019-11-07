@@ -12,7 +12,7 @@ namespace SIESTUNAM
     {
         static string ip = "localhost";
         static string puerto = "3306";
-        static string ip2 = "127.0.0.1";
+        //static string ip2 = "127.0.0.1";
         static string userBD = "root";
         static string pw = "";
         static string DataBaseName = "siestunam";

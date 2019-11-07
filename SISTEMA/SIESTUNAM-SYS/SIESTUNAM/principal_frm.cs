@@ -41,7 +41,6 @@ namespace SIESTUNAM
             string query = "SELECT `nomEsc`, `lugaresTot`,`lugaresOc`,`lugaresDis` "+
                 " FROM `estacionamiento` WHERE `idEst` = " + idEscuela + " ";
             // Prepara la conexión
-            bool bandera = false;
             Conexion cn = new Conexion();
             MySqlConnection databaseConnection = cn.ConexionNew();
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);

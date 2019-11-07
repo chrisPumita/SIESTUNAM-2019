@@ -14,8 +14,7 @@ namespace SIESTUNAM
     public partial class Login_frm : Form
     {
         //Variables globales de la clase
-        String Sesion;
-        MySqlDataReader readerDB;
+            MySqlDataReader readerDB;
          Empleado empleadito;
 
 

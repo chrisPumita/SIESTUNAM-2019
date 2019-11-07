@@ -7,38 +7,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace SIESTUNAM
 {
     public partial class AddUsers : Form
     {
         int opc;
-        int id;
         USUARIO usuarioClass;
-        Empleado empleadoClass;
         //Opc 1 agregar != 1 Editar
-        public AddUsers(int opc, int id, Empleado emp)
+        public AddUsers(int opc, USUARIO usuario)
         {
             InitializeComponent();
-            this.empleadoClass = emp;
+            this.usuarioClass = usuario;
+            this.opc = opc;
+            lblOpcionTitulo.Text = "Modifica al usuario " + usuarioClass.NoCta;
+            txtId.Text = Convert.ToString(usuarioClass.IdUser);
+            btnAccion.Text = "Actualizar";
+            cargaDatos();
+        }
+
+        //opc 2 para editar
+        public AddUsers(int opc)
+        {
+            InitializeComponent();
             this.opc = opc;
 
-            if (opc == 1) // Defino que se trata de una insercion (nuevo)
-            {
                 lblOpcionTitulo.Text = "Agregar Nuevo Usuario";
                 btnAccion.Text = "Siguiente";
                 txtId.Visible = false;
                 lblId.Visible = false;
-            }
-            else 
-            {
-                this.id = id;
-                lblOpcionTitulo.Text = "Modifica al usuario " + id;
-                txtId.Text =Convert.ToString(id);
-                btnAccion.Text = "Actualizar";
-            }
-               
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -48,14 +46,19 @@ namespace SIESTUNAM
                 if (validaDatosUsuario())
                 {
                     //le mando 1 porque voy a agregar nuevo usuario
-                    AddVehiculo carroNuevo = new AddVehiculo(empleadoClass, usuarioClass,1);
+                    AddVehiculo carroNuevo = new AddVehiculo(this,usuarioClass,1);
                     carroNuevo.ShowDialog();
                 }
                 else
                     MessageBox.Show("Faltan datos por agregar o el formato no es el correcto");
             }
             else {
-                MessageBox.Show("Se modifico el usuario");
+                if (validaDatosUsuario())
+                {
+                    if(updateDB(usuarioClass))
+                        MessageBox.Show("Se modifico el usuario");
+                }
+                
                 this.Close();
             }
         }
@@ -109,8 +112,8 @@ namespace SIESTUNAM
                     else
                         id = Convert.ToInt32(txtId.Text);
                     int noCueta = Convert.ToInt32(txtNoCuenta.Text);
-                    USUARIO uss = new USUARIO(id, noCueta, nombre, app, apm, tel, email, sex, tipo, status);
-                    usuarioClass = uss;
+                    USUARIO tmpUsuario = new USUARIO(id, noCueta, nombre, app, apm, tel, email, sex, tipo, status);
+                    usuarioClass = tmpUsuario;
                     flag = true;
                 }
                 catch (Exception e) {
@@ -122,9 +125,56 @@ namespace SIESTUNAM
             return flag;
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
+        private void cargaDatos() {
+            txtNoCuenta.Text = Convert.ToString(usuarioClass.NoCta);
+            txtId.Text = Convert.ToString(usuarioClass.IdUser);
+            txtNombre.Text = usuarioClass.Nombre;
+            txtApp.Text = usuarioClass.App;
+            txtApm.Text = usuarioClass.Apm;
+            txtTel.Text = usuarioClass.Tel;
+            txtMail.Text = usuarioClass.Email;
+            cboSex.SelectedIndex = usuarioClass.Sex;
+            cboTipoUsuario.SelectedIndex = usuarioClass.Tipo;
+            if (usuarioClass.Status == 1)
+                checkStatus.Checked = true;
+            else
+                checkStatus.Checked = false;
+        }
 
+        bool updateDB(USUARIO userUpdate) {
+            bool flag = false;
+
+            string sSQL = "UPDATE `usuario` SET "+
+                " `noCta` = '" + userUpdate.NoCta + "'," +
+                " `nomUser` = '" + userUpdate.Nombre + "'," +
+                " `apP` = '" + userUpdate.App + "'," +
+                " `apM` = '" + userUpdate.Apm + "'," +
+                " `tel` = '" + userUpdate.Tel + "', " +
+                "`email` = '" + userUpdate.Email + "', " +
+                "`sex` = '" + userUpdate.Sex + "', " +
+                "`tipoUser` = '" + userUpdate.Tipo + "'," +
+                " `status` = '" + userUpdate.Status + "' " +
+                "WHERE `usuario`.`idUser` = " + userUpdate.IdUser + "   ";
+            // Prepara la conexión
+            Conexion cn = new Conexion();
+            MySqlConnection databaseConnection = cn.ConexionNew();
+            MySqlCommand commandDatabase = new MySqlCommand(sSQL, databaseConnection);
+            commandDatabase.CommandTimeout = 60;
+            try
+            {
+                databaseConnection.Open();
+                commandDatabase.ExecuteReader();
+                // Cerrar la conexión
+                databaseConnection.Close();
+                flag = true;
+            }
+
+            catch (Exception ex)
+            {
+                // Mostrar cualquier excepción
+                MessageBox.Show(ex.Message);
+            }
+            return flag;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -132,14 +182,5 @@ namespace SIESTUNAM
             this.Close();
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

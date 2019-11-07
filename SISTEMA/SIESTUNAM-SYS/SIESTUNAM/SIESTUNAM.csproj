@@ -98,6 +98,12 @@
     <Compile Include="RegVehiculo_frm.Designer.cs">
       <DependentUpon>RegVehiculo_frm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes.Designer.cs">
+      <DependentUpon>Reportes.cs</DependentUpon>
+    </Compile>
     <Compile Include="USUARIO.cs" />
     <Compile Include="VEHICULO.cs" />
     <EmbeddedResource Include="AddUsers.resx">
@@ -136,6 +142,9 @@
     </Compile>
     <EmbeddedResource Include="RegVehiculo_frm.resx">
       <DependentUpon>RegVehiculo_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes.resx">
+      <DependentUpon>Reportes.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
