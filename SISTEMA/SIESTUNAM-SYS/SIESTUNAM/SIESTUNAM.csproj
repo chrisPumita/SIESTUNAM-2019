@@ -78,6 +78,7 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="PASE_VECHICULO.cs" />
     <Compile Include="PRINCIPAL.cs">
       <SubType>Form</SubType>
     </Compile>

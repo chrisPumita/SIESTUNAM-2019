@@ -95,7 +95,6 @@ namespace SIESTUNAM
                          * int tipo,
                          * int status)
             /*
-
             USUARIO otroUSer = new USUARIO(opc != 1 ? 0 : Convert.ToInt32(txtId.Text), Convert.ToInt32(txtNoCuenta.Text),
                 txtNombre.Text, txtApp.Text, txtApm.Text, txtTel.Text, txtMail.Text, cboSex.SelectedIndex,
                 cboTipoUsuario.SelectedIndex, checkStatus.Checked ? 1 : 0);

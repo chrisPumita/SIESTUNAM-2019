@@ -38,11 +38,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblDatosVehiculo = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblNameUser = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPlacaIn = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panelLugares = new System.Windows.Forms.Panel();
@@ -83,6 +83,7 @@
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.txtPrint = new System.Windows.Forms.TextBox();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -93,6 +94,7 @@
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel6
@@ -108,7 +110,6 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(985, 118);
             this.panel6.TabIndex = 21;
-            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
             // 
             // txtUserName
             // 
@@ -178,11 +179,11 @@
             // 
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.lblDatosVehiculo);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.lblNameUser);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txtPlacaIn);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(11, 17);
@@ -194,7 +195,7 @@
             // 
             this.pictureBox2.Image = global::SIESTUNAM.Properties.Resources._checked;
             this.pictureBox2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.pictureBox2.Location = new System.Drawing.Point(72, 295);
+            this.pictureBox2.Location = new System.Drawing.Point(72, 323);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(94, 79);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -212,18 +213,18 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label6
+            // lblDatosVehiculo
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.White;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label6.Location = new System.Drawing.Point(15, 244);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(136, 16);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "<vehiculo ingresado>";
+            this.lblDatosVehiculo.AutoSize = true;
+            this.lblDatosVehiculo.BackColor = System.Drawing.Color.White;
+            this.lblDatosVehiculo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDatosVehiculo.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblDatosVehiculo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblDatosVehiculo.Location = new System.Drawing.Point(15, 244);
+            this.lblDatosVehiculo.Name = "lblDatosVehiculo";
+            this.lblDatosVehiculo.Size = new System.Drawing.Size(136, 16);
+            this.lblDatosVehiculo.TabIndex = 16;
+            this.lblDatosVehiculo.Text = "<vehiculo ingresado>";
             // 
             // label5
             // 
@@ -237,18 +238,18 @@
             this.label5.TabIndex = 15;
             this.label5.Text = "Vehiculo:";
             // 
-            // label4
+            // lblNameUser
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.White;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label4.Location = new System.Drawing.Point(15, 179);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(155, 16);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "<nombre de propietario>";
+            this.lblNameUser.AutoSize = true;
+            this.lblNameUser.BackColor = System.Drawing.Color.White;
+            this.lblNameUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNameUser.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblNameUser.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblNameUser.Location = new System.Drawing.Point(15, 179);
+            this.lblNameUser.Name = "lblNameUser";
+            this.lblNameUser.Size = new System.Drawing.Size(155, 16);
+            this.lblNameUser.TabIndex = 14;
+            this.lblNameUser.Text = "<nombre de propietario>";
             // 
             // label3
             // 
@@ -262,13 +263,13 @@
             this.label3.TabIndex = 13;
             this.label3.Text = "Nombre:";
             // 
-            // textBox1
+            // txtPlacaIn
             // 
-            this.textBox1.Font = new System.Drawing.Font("Montserrat", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(6, 97);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(208, 33);
-            this.textBox1.TabIndex = 12;
+            this.txtPlacaIn.Font = new System.Drawing.Font("Montserrat", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPlacaIn.Location = new System.Drawing.Point(6, 97);
+            this.txtPlacaIn.Name = "txtPlacaIn";
+            this.txtPlacaIn.Size = new System.Drawing.Size(208, 33);
+            this.txtPlacaIn.TabIndex = 12;
             // 
             // label2
             // 
@@ -673,18 +674,26 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(150)))), ((int)(((byte)(57)))));
+            this.panel3.Controls.Add(this.txtPrint);
             this.panel3.Location = new System.Drawing.Point(0, 610);
             this.panel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(985, 35);
             this.panel3.TabIndex = 24;
             // 
+            // txtPrint
+            // 
+            this.txtPrint.Location = new System.Drawing.Point(24, 8);
+            this.txtPrint.Name = "txtPrint";
+            this.txtPrint.Size = new System.Drawing.Size(838, 20);
+            this.txtPrint.TabIndex = 0;
+            // 
             // PRINCIPAL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(985, 635);
+            this.ClientSize = new System.Drawing.Size(985, 650);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel6);
@@ -708,6 +717,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -724,11 +735,11 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblDatosVehiculo;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblNameUser;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPlacaIn;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelLugares;
@@ -770,5 +781,6 @@
         private System.Windows.Forms.ToolStripMenuItem modificarContraseñaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
+        private System.Windows.Forms.TextBox txtPrint;
     }
 }

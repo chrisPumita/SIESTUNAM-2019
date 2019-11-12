@@ -92,7 +92,7 @@ namespace SIESTUNAM
         private void imprimeTadosEscuela()
         {
             lblNameEsc.Text = fesc.NomEscuela;
-            label4.Text = fesc.NomEscuela;
+            lblNameUser.Text = fesc.NomEscuela;
             lblDisponible.Text = Convert.ToString(fesc.Disponibles);
             lblOcupados.Text = Convert.ToString(fesc.Ocupados);
         }
@@ -112,6 +112,200 @@ namespace SIESTUNAM
             txtUserName.Text = emp.NomEmp + " " + emp.ApP + " " + emp.ApM + " - " + tipoCuta;
         }
 
+        private bool registraVechiculo(string placa) 
+        {
+            bool flag = false;
+            //Verificamos que el vehiculo no tenga una entrada ya registrada antes de registrar otra entrada
+            //primero Busca auto
+            VEHICULO carroEncontrado = BuscaAuto(placa);
+            if (carroEncontrado != null)
+            {
+                lblDatosVehiculo.Text = carroEncontrado.Marca+" "+carroEncontrado.Modelo +" Color: "+carroEncontrado.Color;
+                //encontramos vechiculo pero ahora revisaremos que no tenga ya una entrada registrada.
+                PASE_VECHICULO pase = BuscaPaseAuto(carroEncontrado.IdAuto);
+                if (pase == null) 
+                { 
+                    //Todo en orden, se registra nueva entrada
+                    if (registraEntradaAuto(carroEncontrado))
+                    {
+                        MessageBox.Show("PUEDE PASAR");
+                        flag = true;
+                        //cambiamos imagenes para que se vea chido
+                    }
+                    else
+                        MessageBox.Show("El coche ya tiene ún pase registrado");
+                }
+            }
+            else
+                MessageBox.Show("El vechiculo no existe, porfavor registrelo");
+
+
+            return flag;
+        }
+
+        private string fechaHora() {
+            return DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+        }
+
+        private bool registraEntradaAuto(VEHICULO carroE) {
+            bool flag = false;
+
+            string sSQL = "INSERT INTO `pase_v`"+
+                " (`idPase`, `idAuto`, `idEmp`, `idReporte`, `horaE`, `horaS`, `status`) "+
+                " VALUES (NULL, '" + carroE.IdAuto + "', '" + emp.IdEmp + "', NULL, '" + fechaHora() + "', NULL, '1') ";
+            // Prepara la conexión
+            Conexion cn = new Conexion();
+            MySqlConnection databaseConnection = cn.ConexionNew();
+            MySqlCommand commandDatabase = new MySqlCommand(sSQL, databaseConnection);
+            commandDatabase.CommandTimeout = 60;
+            try
+            {
+                databaseConnection.Open();
+                commandDatabase.ExecuteReader();
+                databaseConnection.Close();
+                flag = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al insertar nuevo registro \r\n"+ ex.Message);
+            }
+            return flag;
+        }
+
+        private VEHICULO BuscaAuto(string placa)
+        {
+            int idAuto;
+            string marca;
+            string modelo;
+            string placas;
+            string color;
+            int tipo;
+            int idUser;
+            VEHICULO carroEntrante = null;
+            string query = "SELECT `idAuto`, `marca`, `modelo`, `placa`, `color`, `tipoV`, `idUser` FROM " +
+                " `auto` WHERE `placa` = '" + placa + "'  ";
+            // Prepara la conexión
+            Conexion cn = new Conexion();
+            MySqlConnection databaseConnection = cn.ConexionNew();
+            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+            commandDatabase.CommandTimeout = 60;
+            MySqlDataReader reader;
+            try
+            {
+                databaseConnection.Open();
+                reader = commandDatabase.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        string[] row = { 
+                                           reader.GetString("idAuto"), // 0
+                                           reader.GetString("marca"), // 1
+                                           reader.GetString("modelo"),  // 2
+                                           reader.GetString("placa"), // 3
+                                           reader.GetString("color"), // 4
+                                           reader.GetString("tipoV"), // 5
+                                           reader.GetString("idUser") // 6
+                                       };
+                        idAuto =Convert.ToInt32(row[0]);
+                        marca = row[1];
+                        modelo = row[2];
+                        placas = row[3];
+                        color = row[4];
+                        tipo = Convert.ToInt32(row[5]);
+                        idUser = Convert.ToInt32(row[6]);
+
+                        carroEntrante = new VEHICULO(idAuto,marca,modelo,placas,color,tipo,idUser);
+                    }
+                }
+                // Cerrar la conexión
+                databaseConnection.Close();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error en la base de datos de busqueda de vechiculo \r\n" + ex);
+            }
+            return carroEntrante;
+        }
+
+
+        private PASE_VECHICULO BuscaPaseAuto(int idCarro)
+        {
+            int idPase;
+            int idAuto;
+            int idEmp;
+            int idReporte;
+            DateTime horaE;
+            DateTime horaS;
+            int status;
+
+            PASE_VECHICULO paseFound = null;
+            string query = "SELECT `idPase`, `idAuto`, `idEmp`, `idReporte`, `horaE`, `horaS`, `status` FROM "+
+                " `pase_v` WHERE `idAuto` = " + idCarro + " AND `horaS` IS NULL AND `status` = 1; ";
+            // Prepara la conexión
+            Conexion cn = new Conexion();
+            MySqlConnection databaseConnection = cn.ConexionNew();
+            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+            commandDatabase.CommandTimeout = 60;
+            MySqlDataReader reader;
+            txtPrint.Text = query;
+            try
+            {
+                databaseConnection.Open();
+                reader = commandDatabase.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        string[] row = { 
+                                           reader.GetString("idPase"), // 0
+                                           reader.GetString("idAuto"), // 1
+                                           reader.GetString("idEmp"),  // 2
+                                           reader.GetString("idReporte"), // 3
+                                           reader.GetString("horaE"), // 4
+                                           reader.GetString("horaS"), // 5
+                                           reader.GetString("status") // 6
+                                       };
+                        idPase = Convert.ToInt32(row[0]);
+                        idAuto = Convert.ToInt32(row[1]);
+                        idEmp = Convert.ToInt32(row[2]);
+                        horaE = DateTime.Parse(row[4]);
+                        status = Convert.ToInt32(row[6]);
+                        try
+                        {
+                            idReporte = Convert.ToInt32(row[3]);
+                            horaS = DateTime.Parse(row[5]);
+                        }
+                        catch (Exception err)
+                        {
+                            idReporte =0;
+                            horaS = DateTime.Parse("2000-11-27 00:00:00");
+                        }
+                        
+                        /*
+                            DateTime dateValue = DateTime.Parse(lDat_otp);
+                            string formatForMySql = dateValue.ToString("yyyy-MM-dd HH:mm");
+                         */
+                        MessageBox.Show(idPase + " " + idAuto + " " + idEmp + " " + horaE + " " + status);
+                        if (idReporte != 0)
+                            paseFound = new PASE_VECHICULO(idPase,idAuto,idEmp,idReporte,horaE,horaS,status);
+                        else
+                            paseFound = new PASE_VECHICULO(idPase,idAuto,idEmp,horaE,status);
+                    }
+                }
+                // Cerrar la conexión
+                databaseConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error en la base de datos de busqueda del pase \r\n" + ex.Message);
+            }
+            return paseFound;
+        }
+
+
+
         private void vehiculoNuevoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             RegVehiculo_frm reg_vehiculo = new RegVehiculo_frm();
@@ -120,7 +314,11 @@ namespace SIESTUNAM
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            //buscamos la placa
+            if (registraVechiculo(txtPlacaIn.Text))
+                MessageBox.Show("Se ha registrado la entrada");
+            else
+                MessageBox.Show("Error al registrar");
         }
 
         private void cerrarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -141,22 +339,6 @@ namespace SIESTUNAM
             accionEmp.ShowDialog();
         }
 
-        private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel6_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
         private void modificarEmpleadoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             inputBox dialogo = new inputBox(1);
@@ -167,11 +349,6 @@ namespace SIESTUNAM
                 empleadoForm accionEmp = new empleadoForm(2, emp, this.fesc);
                 accionEmp.ShowDialog();
             }
-        }
-
-        private void vehiculosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -204,7 +381,6 @@ namespace SIESTUNAM
             Reportes reporteV = new Reportes(2);
             reporteV.Show();
         }
-
 
     }
 }
